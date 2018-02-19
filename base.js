@@ -3,53 +3,27 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+exports.default = Base;
 
 var _preact = require('preact');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function Base(_ref) {
+  var text = _ref.text,
+      backgroundImage = _ref.backgroundImage,
+      children = _ref.children,
+      className = _ref.className;
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+  var _styles = styles(),
+      base = _styles.base,
+      box = _styles.box,
+      icon = _styles.icon;
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Base = function (_Component) {
-  _inherits(Base, _Component);
-
-  function Base() {
-    _classCallCheck(this, Base);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Base).apply(this, arguments));
-  }
-
-  _createClass(Base, [{
-    key: 'render',
-    value: function render(_ref) {
-      var text = _ref.text;
-      var backgroundImage = _ref.backgroundImage;
-      var children = _ref.children;
-      var className = _ref.className;
-
-      var _styles = styles();
-
-      var base = _styles.base;
-      var box = _styles.box;
-      var icon = _styles.icon;
-
-      icon.backgroundImage = 'url(\'' + backgroundImage + '\')';
-      return (0, _preact.h)('div', {
-        className: className,
-        style: base
-      }, (0, _preact.h)('div', { style: box }, (0, _preact.h)('div', { style: icon }), text || '', children));
-    }
-  }]);
-
-  return Base;
-}(_preact.Component);
-
-exports.default = Base;
-
+  icon.backgroundImage = 'url(\'' + backgroundImage + '\')';
+  return (0, _preact.h)('div', {
+    className: className,
+    style: base
+  }, (0, _preact.h)('div', { style: box }, (0, _preact.h)('div', { style: icon }), text || '', children));
+}
 
 function styles() {
   return {

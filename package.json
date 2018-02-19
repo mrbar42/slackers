@@ -1,14 +1,14 @@
 {
   "name": "slackers",
   "description": "Simple 'end of the road' pages with good modern vibe",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "transpile": "babel ./src ./build --out-dir ${OUT_DIR:-./} --presets es2015,react --plugins babel-plugin-add-module-exports",
     "standalone": "OUT_DIR=./build npm run transpile && webpack --bail -p --progress",
     "generate-icons": "node tools/generate-icons && npm run transpile",
     "clean": "node tools/rm build",
     "compile": "npm run generate-icons && npm run standalone && npm run clean",
-    "prepublish": "npm run compile",
+    "prepublishOnly": "npm run compile",
     "test": "echo 'No tests were defined'"
   },
   "main": "base.js",
@@ -24,5 +24,13 @@
     "pages"
   ],
   "author": "mrbar42",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "6.4.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "webpack": "1.15.0"
+  }
 }

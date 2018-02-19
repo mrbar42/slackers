@@ -1,27 +1,23 @@
 'use strict';
 
-import {h, Component} from 'preact';
+import {h} from 'preact';
 
-class Base extends Component {
-  render({text, backgroundImage, children, className}) {
-    let {base, box, icon} = styles();
-    icon.backgroundImage = `url('${backgroundImage}')`;
-    return (
-      h('div', {
-          className,
-          style: base
-        },
-        h('div', {style: box},
-          h('div', {style: icon}),
-          text || '',
-          children
-        )
+export default function Base({text, backgroundImage, children, className}) {
+  let {base, box, icon} = styles();
+  icon.backgroundImage = `url('${backgroundImage}')`;
+  return (
+    h('div', {
+        className,
+        style: base
+      },
+      h('div', {style: box},
+        h('div', {style: icon}),
+        text || '',
+        children
       )
     )
-  }
+  );
 }
-
-export default Base;
 
 function styles() {
   return {
@@ -56,5 +52,5 @@ function styles() {
       height: 230,
       margin: 'auto'
     }
-  }
+  };
 }

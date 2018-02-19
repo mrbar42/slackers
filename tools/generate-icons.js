@@ -19,11 +19,11 @@ fs.readdirSync(SLACKERS_FOLDER)
   .filter(x => /\.svg$/.test(x))
   .forEach(icon => {
     let imageData = fs.readFileSync(`${SLACKERS_FOLDER}/${icon}`, 'binary');
-    var base64Image = new Buffer(imageData, 'binary').toString('base64');
+    let base64Image = new Buffer(imageData, 'binary').toString('base64');
     let dataUrlPrefix = "data:image/svg+xml;base64,";
 
     let iconName = icon.replace(/^-|\.svg$/g, '');
-    if (iconName == 'base') throw new Error("base is a reserved name and cannot be used as slacker name");
+    if (iconName === 'base') throw new Error("base is a reserved name and cannot be used as slacker name");
 
     let capitalName;
     // icons starting with - will have empty text

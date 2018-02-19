@@ -1,7 +1,5 @@
 'use strict';
 
-const webpack = require('webpack');
-
 let entry = require('fs').readdirSync('./build')
   .filter(x => /\.js/.test(x))
   .reduce((base, slacker) => {
@@ -34,7 +32,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel?presets[]=react,presets[]=es2015'
+        loader: 'babel-loader?presets[]=react,presets[]=es2015'
       }
     ]
   }
